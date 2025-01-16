@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FirstScript : MonoBehaviour
 {
-    public float xSpeed = 10f;
-    public float ySpeed = 10f;
+    public float xSpeed = 50f;
+    public float ySpeed = 50f;
 
     // Start is called before the first frame update
     void Start()
