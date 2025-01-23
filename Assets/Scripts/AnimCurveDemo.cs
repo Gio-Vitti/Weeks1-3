@@ -18,6 +18,6 @@ public class AnimCurveDemo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.localScale = Vector2.one * curve.Evaluate(t);
+        transform.localPosition = Vector2.one * curve.Evaluate(t);
     }
 }

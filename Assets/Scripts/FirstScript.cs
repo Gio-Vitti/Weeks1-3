@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class FirstScript : MonoBehaviour
 {
+
+    public AnimationCurve jump;
+
+    [Range(0, 5)]
+    public float height;
+
     public float xSpeed = 50f;
     public float ySpeed = 50f;
 
@@ -18,7 +24,7 @@ public class FirstScript : MonoBehaviour
     {
         Vector2 pos = transform.position;
         pos.x += xSpeed * Time.deltaTime;
-        pos.y -= ySpeed * Time.deltaTime;
+       // pos.y -= ySpeed * Time.deltaTime;
         transform.position = pos;
 
         Vector2 squareInScreenSpace = Camera.main.WorldToScreenPoint(pos);
@@ -35,7 +41,7 @@ public class FirstScript : MonoBehaviour
 
         }
 
-        //Change speed
-        
+        transform.localPosition = Vector2.one * jump.Evaluate(height);
+
     }
 }
