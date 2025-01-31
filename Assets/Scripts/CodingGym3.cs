@@ -2,38 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FirstScript : MonoBehaviour
+public class CodingGym3 : MonoBehaviour
 {
-
-    public float xSpeed = 50f;
-    public float ySpeed = 50f;
+    public AnimationCurve curve;
+    public float speed;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector2 pos = transform.position;
-        pos.x += xSpeed * Time.deltaTime;
-        pos.y -= ySpeed * Time.deltaTime;
+      
+        pos.x += speed * Time.deltaTime;
+       
         transform.position = pos;
 
         Vector2 squareInScreenSpace = Camera.main.WorldToScreenPoint(pos);
 
-        //Bounce around screen
+        //Bounce across screen
         if (squareInScreenSpace.x < 0 || squareInScreenSpace.x > Screen.width)
         {
-            xSpeed = xSpeed * -1;
+            speed = speed * -1;
         }
 
-        if (squareInScreenSpace.y < 0 || squareInScreenSpace.y > Screen.height)
+        if (Input.GetKey(KeyCode.Space))
         {
-            ySpeed = ySpeed * -1;
-
+            pos.y += speed * Time.deltaTime;
         }
 
     }
