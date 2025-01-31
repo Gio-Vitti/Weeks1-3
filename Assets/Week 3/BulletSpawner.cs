@@ -28,7 +28,7 @@ public class BulletSpawner : MonoBehaviour
     void Spawn()
     {
         GameObject spawnedBullet = Instantiate(prefab);
-       // bullet = spawnedBullet.GetComponent<Bullet>();
+       //bullet = spawnedBullet.GetComponent<Bullet>();
     }
 
     void Fire()
