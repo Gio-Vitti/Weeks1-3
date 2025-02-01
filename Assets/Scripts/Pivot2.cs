@@ -13,7 +13,7 @@ public class Pivot2 : MonoBehaviour
    bool currentlySpinning = false;
 
     //Rotation Speed
-    float rotationSpeed = 0.5f;
+    public float rotationSpeed;
 
     //Rotation Amount
     float rotationAmount;

@@ -40,7 +40,7 @@ public class SpinningGlobe : MonoBehaviour
         //Rotate globe until it reaches the next quadrant
         if (currentlySpinning == true && rotationAmount <= 90)
         {
-            spin.z -= rotationSpeed ;
+            spin.z -= rotationSpeed;
             rotationAmount += rotationSpeed;
         } else //Set rotation to quad * 90 so there is no gradual offset when spinning multiple times
         {

@@ -16,7 +16,7 @@ public class Pivot1 : MonoBehaviour
     bool spinBackwards = false;
 
     //Rotation Speed
-    float rotationSpeed = 0.5f;
+   public float rotationSpeed;
 
     //Rotation Amount
     float rotationAmount;
