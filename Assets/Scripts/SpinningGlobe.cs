@@ -7,13 +7,14 @@ public class SpinningGlobe : MonoBehaviour
     //Variables:
 
     //Globe Quadrant
-    public int quad = 0;
+    int quad = 0;
 
     //Flag for the globe's spinning state
     bool currentlySpinning = false;
 
     //Rotation Speed
     public float rotationSpeed;
+
     //Rotation Amount
     public float rotationAmount;
 

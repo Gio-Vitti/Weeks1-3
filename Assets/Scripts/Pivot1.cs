@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pivot2 : MonoBehaviour
+public class Pivot1 : MonoBehaviour
 {
     //Variables:
 
@@ -10,13 +10,17 @@ public class Pivot2 : MonoBehaviour
     public int quad = 0;
 
     //Flag for the globe's spinning state
-   bool currentlySpinning = false;
+    bool currentlySpinning = false;
+
+    //Flag for spinning backwards state when passing quadrant 3
+    bool spinBackwards = false;
 
     //Rotation Speed
     float rotationSpeed = 0.5f;
 
     //Rotation Amount
     float rotationAmount;
+    float backwardsAmount;
 
 
     // Update is called once per frame
@@ -24,10 +28,10 @@ public class Pivot2 : MonoBehaviour
     {
         //Rotation
         Vector3 spin = transform.eulerAngles;
-       
 
-       //Activate spinning when on the correct quadrant
-        if (Input.GetKeyDown(KeyCode.Space) && quad == 0 || Input.GetKeyDown(KeyCode.Space) && quad >= 2)
+
+        //Activate spinning when on the correct quadrant
+        if (Input.GetKeyDown(KeyCode.Space) && quad == 1)
         {
             currentlySpinning = true;
         }
@@ -39,33 +43,36 @@ public class Pivot2 : MonoBehaviour
         }
 
         //Rotate globe until it reaches the next quadrant
-        if (currentlySpinning == true && rotationAmount <= 90 )
+        if (currentlySpinning == true && rotationAmount <= 90)
         {
             spin.z -= rotationSpeed;
             rotationAmount += rotationSpeed;
         }
-        else if (quad == 1) //Hold in place when on the specified quadrant
-        {
-            currentlySpinning = false;
-            rotationAmount = 0;
-            spin.z = 270;
-
-        } else
+        else 
         {
             currentlySpinning = false;
             rotationAmount = 0;
         }
 
-
-        //Reset Quadrant variable and initial rotation
+        //Reset Quadrant variable and initial rotation, enable bacwards rotation
         if (quad > 3)
         {
-            spin.z = 90;
             quad = 0;
+            spinBackwards = true;
+        }
+
+        //Rotate counter clockwise until reaching quadrant 0 
+        if (spinBackwards == true && backwardsAmount <= 90)
+        {
+            spin.z += rotationSpeed;
+            backwardsAmount += rotationSpeed;
+        } else
+        {
+            spinBackwards = false;
+            backwardsAmount = 0;
         }
 
         transform.eulerAngles = spin;
     }
 }
-
 
